@@ -10,20 +10,7 @@ const sleepTimeValidationRules = () => {
   ]
 }
 
-const scripturesValidationRules = () =>{
-  console.log('scripturesValidationRules');
-    return [
-    body('class').isString().notEmpty().withMessage('Class is required'),
-    body('book').isString().notEmpty().withMessage('Book is required'),
-    body('chapter').notEmpty().withMessage('Chapter is required'),
-    body('verse').notEmpty().withMessage('Verse is required'),
-    body('text').notEmpty().withMessage('Text is required')
-  ]
-}
-
-
 const validate = (req, res, next) => {''
-  console.log('validate');
   
   const errors = validationResult(req)
   if (errors.isEmpty()) {
@@ -39,7 +26,6 @@ const validate = (req, res, next) => {''
 
 
 module.exports = {
-  scripturesValidationRules,
   sleepTimeValidationRules,
   validate
 }
