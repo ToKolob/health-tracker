@@ -2,11 +2,32 @@ const { body, validationResult } = require('express-validator')
 
 
 const sleepTimeValidationRules = () => {
-
   return [
-    body('duration').isNumeric().notEmpty().withMessage('Duration is required'),
+    body('duration').isNumeric().withMessage('Duration must be a number').notEmpty().withMessage('Duration is required'),
     body('date').isString().notEmpty().withMessage('Date is required'),
     body('quality').isString().notEmpty().withMessage('Quality is required'),
+  ]
+}
+const exerciseValidationRules = () => {
+  return [
+    body('name').isString().notEmpty().withMessage('Name is required'),
+    body('duration').isNumeric().notEmpty().withMessage('Duration is required'),
+    body('date').isString().notEmpty().withMessage('Date is required'),
+    body('quality').isString().notEmpty().withMessage('Quality is required')
+  ]
+}
+
+const mealValidationRules = () => {
+  return [
+    body('name').isString().notEmpty().withMessage('Name is required'),
+    body('description').isString().notEmpty().withMessage('Description is required'),
+    body('date').isString().notEmpty().withMessage('Date is required'),
+  ]  
+}
+const waterValidationRules = () => {
+  return [
+    body('quantity').isNumeric().withMessage('Quantity must be a number').notEmpty().withMessage('Quantity is required'),
+    body('date').isString().withMessage('Date must be a string').notEmpty().withMessage('Date is required'),
   ]
 }
 
@@ -26,6 +47,10 @@ const validate = (req, res, next) => {''
 
 
 module.exports = {
+
   sleepTimeValidationRules,
+  exerciseValidationRules,
+  mealValidationRules,
+  waterValidationRules,
   validate
 }

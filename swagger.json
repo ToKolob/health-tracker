@@ -22,10 +22,10 @@
         }
       }
     },
-    "/sleep-time/": {
+    "/exercises/": {
       "get": {
         "tags": [
-          "sleep-time"
+          "exercises"
         ],
         "description": "",
         "produces": [
@@ -42,7 +42,40 @@
       },
       "post": {
         "tags": [
-          "sleep-time"
+          "exercises"
+        ],
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "412": {
+            "description": "Precondition Failed"
+          }
+        }
+      }
+    },
+    "/meals/": {
+      "get": {
+        "tags": [
+          "meals"
+        ],
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "meals"
         ],
         "description": "",
         "produces": [
@@ -50,19 +83,135 @@
         ],
         "parameters": [
           {
-            "name": "sleep-time",
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "any"
+                },
+                "description": {
+                  "example": "any"
+                },
+                "date": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "412": {
+            "description": "Precondition Failed"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/water/": {
+      "get": {
+        "tags": [
+          "water"
+        ],
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "water"
+        ],
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "quantity": {
+                  "example": "any"
+                },
+                "date": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "412": {
+            "description": "Precondition Failed"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/sleep/": {
+      "get": {
+        "tags": [
+          "sleep"
+        ],
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "sleep"
+        ],
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
             "in": "body",
             "schema": {
               "type": "object",
               "properties": {
                 "duration": {
-                  "type": "number"
+                  "example": "any"
                 },
                 "date": {
-                  "type": "string"
+                  "example": "any"
                 },
                 "quality": {
-                  "type": "string"
+                  "example": "any"
                 }
               }
             }

@@ -9,8 +9,11 @@ router.get('/', (req, res) => {
     '<br> <a href="/auth/google">Login with Google</a>');
 });
 
-router.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+router.use('/exercises', require('./exercises.js'));
+router.use('/meals', require('./meals.js'));
+router.use('/water', require('./water.js'));
+router.use('/sleep', require('./sleep.js'));
 
-router.use('/sleep-time', require('./sleep-time.js'));
+router.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 module.exports = router;

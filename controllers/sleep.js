@@ -1,8 +1,8 @@
 const mongodb = require('../data/mongodb.js');
 const ObjectId = require('mongodb').ObjectId;
 
-const getSleepTime = async (req, res) => {
-  // #swagger.tags = ['sleep-time')']
+const getSleep = async (req, res) => {
+  // #swagger.tags = ['sleep')']
 
   try {
     const list = await mongodb
@@ -21,8 +21,8 @@ const getSleepTime = async (req, res) => {
   }
 };
 
-const postSleepTime = async (req, res) => {
-  // #swagger.tags = ['sleep-time')']
+const postSleep = async (req, res) => {
+  // #swagger.tags = ['sleep')']
   try {
     const sleepTime = {
       duration: req.body.duration,
@@ -45,6 +45,6 @@ const postSleepTime = async (req, res) => {
 };
 
 module.exports = {
-  getSleepTime,
-  postSleepTime
+  getSleep,
+  postSleep
 }
