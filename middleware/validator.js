@@ -22,6 +22,10 @@ const mealValidationRules = () => {
     body('name').isString().notEmpty().withMessage('Name is required'),
     body('description').isString().notEmpty().withMessage('Description is required'),
     body('date').isString().notEmpty().withMessage('Date is required'),
+    body('calories').isString().notEmpty().withMessage('calories is required'),
+    body('tags').isString().notEmpty().withMessage('tags is required'),
+    body('satisfaction').isString().notEmpty().withMessage('satisfaction is required'),
+    body('mealType').isString().notEmpty().withMessage('mealType is required'),
   ]  
 }
 const waterValidationRules = () => {
