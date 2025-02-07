@@ -11,9 +11,10 @@ const sleepTimeValidationRules = () => {
 const exerciseValidationRules = () => {
   return [
     body('name').isString().notEmpty().withMessage('Name is required'),
+    body('description').isString(),
     body('duration').isNumeric().notEmpty().withMessage('Duration is required'),
-    body('date').isString().notEmpty().withMessage('Date is required'),
-    body('quality').isString().notEmpty().withMessage('Quality is required')
+    body('date').isString().notEmpty().withMessage('Date is required')
+    
   ]
 }
 

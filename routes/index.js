@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const bodyParser = require('body-parser');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('../swagger.json');
 
@@ -9,7 +10,7 @@ router.get('/', (req, res) => {
     '<br> <a href="/auth/google">Login with Google</a>');
 });
 
-router.use('/exercises', require('./exercises.js'));
+router.use('/exercises', require("./exercises.js"));
 router.use('/meals', require('./meals.js'));
 router.use('/water', require('./water.js'));
 router.use('/sleep', require('./sleep.js'));
