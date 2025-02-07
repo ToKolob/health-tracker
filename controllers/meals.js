@@ -21,6 +21,7 @@ const getMeals = async (req, res) => {
 }
 
 const getSingleMeal = async (req, res) => {
+  // #swagger.tags = ['meals']
   try {
     const id = req.params.id;
     const objectId = new ObjectId(id);
@@ -73,6 +74,7 @@ const postMeal = async (req, res) => {
 };
 
 const updateMeal = async (req, res) => {
+  // #swagger.tags = ['meals']
   try {
     const id = req.params.id;
     const objectId = new ObjectId(id);
@@ -107,6 +109,7 @@ const updateMeal = async (req, res) => {
 };
 
 const deleteMeal = async (req, res) => {
+  // #swagger.tags = ['meals']
   try {
     const id = req.params.id;
     const objectId = new ObjectId(id);
