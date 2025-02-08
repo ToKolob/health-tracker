@@ -5,7 +5,7 @@ const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('../swagger.json');
 
 router.get('/', (req, res) => {
-  res.send('<p>Hello! Welcome to Memorize Quotes API </p>' +
+  res.send('<p>Hello! Welcome to Health Tracker</p>' +
     '<br> <a href="/api-docs">API Documentation</a>' +
     '<br> <a href="/auth/google">Login with Google</a>');
 });
