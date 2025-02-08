@@ -29,12 +29,19 @@ const mealValidationRules = () => {
     body('mealType').isString().notEmpty().withMessage('mealType is required'),
   ]  
 }
-const waterValidationRules = () => {
+
+const waterIntakeValidationRules = () => {
   return [
-    body('quantity').isNumeric().withMessage('Quantity must be a number').notEmpty().withMessage('Quantity is required'),
-    body('date').isString().withMessage('Date must be a string').notEmpty().withMessage('Date is required'),
-  ]
-}
+    body('quantity').isNumeric().notEmpty().withMessage('Quantity is required'),
+    body('date').isString().notEmpty().withMessage('Date is required'),
+    body('time').isString().notEmpty().withMessage('Time is required'),
+    body('tags').isString().notEmpty().withMessage('Tags should be a string'),
+    body('type').isString().notEmpty().withMessage('Type of water is required'),
+    body('hydrationReason').isString().notEmpty().withMessage('Hydration reason should be a string'),
+    body('location').isString().notEmpty().withMessage('Location should be a string'),
+  ];
+};
+
 
 const validate = (req, res, next) => {''
   
@@ -56,6 +63,6 @@ module.exports = {
   sleepTimeValidationRules,
   exerciseValidationRules,
   mealValidationRules,
-  waterValidationRules,
+  waterIntakeValidationRules,
   validate
 }
