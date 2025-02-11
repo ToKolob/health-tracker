@@ -15,9 +15,6 @@ app.use((req, res, next) => {
 app.use('/', require('./routes/index.js'));
 
 
-process.on('uncaughtException', (err) => {
-  console.log(process.stderr.fd, `Caught exception: ${err} \n Exception origin: ${origin}`);
-});
 
 mongodb.initDb((err, db) => {
   if (err) {
