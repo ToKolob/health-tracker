@@ -22,9 +22,9 @@ const getByIDExercises = async (req, res) => {
 };
 
 const getByDurationExercises = async (req, res) => {
-  if (!ObjectId.isValid(req.params.duration)) {
-      res.status(400).json('Must use a valid duration duration to find an exercise.');
-    }
+//   if (!ObjectId.isValid(req.params.duration)) {
+//       res.status(400).json('Must use a valid duration duration to find an exercise.');
+//     }
   const duration = new ObjectId(req.params.duration);
   const result = await mongodb.getDatabase().db('final-project').collection('exercises').find({_id: exerciseDuration });
   result.toArray().then((exercises) => {
@@ -34,9 +34,9 @@ const getByDurationExercises = async (req, res) => {
 };
 
 const getByNameExercises = async (req, res) => {
-  if (!ObjectId.isValid(req.params.name)) {
-      res.status(400).json('Must use a valid name to find an exercise.');
-    }
+//   if (!ObjectId.isValid(req.params.name)) {
+//       res.status(400).json('Must use a valid name to find an exercise.');
+//     }
   const name = new ObjectId(req.params.name);
   const result = await mongodb.getDatabase().db('final-project').collection('exercises').find({_id: exerciseName });
   result.toArray().then((exercises) => {
@@ -45,9 +45,9 @@ const getByNameExercises = async (req, res) => {
   });
 };
 const getByDateExercises = async (req, res) => {
-  if (!ObjectId.isValid(req.params.date)) {
-      res.status(400).json('Must use a valid date to find an exercise.');
-    }
+//   if (!ObjectId.isValid(req.params.date)) {
+//       res.status(400).json('Must use a valid date to find an exercise.');
+//     }
   const date = new ObjectId(req.params.date);
   const result = await mongodb.getDatabase().db('final-project').collection('exercises').find({_id: exerciseDate });
   result.toArray().then((exercises) => {
@@ -61,7 +61,7 @@ const postExercise = async (req, res) => {
         name: req.body.name,
         description: req.body.description,
         duration: req.body.duartion,
-        date: req.bodt.date
+        date: req.body.date
     };
     const response = await mongodb.getDatabase().db('final-project').collection('exercises').insertOne(exercise);
     if (response.acknowledged) {
@@ -80,7 +80,7 @@ const updateExercises = async (req, res) => {
       name: req.body.name,
       description: req.body.description,
       duration: req.body.duartion,
-      date: req.bodt.date
+      date: req.body.date
     };
     const response = await mongodb.getDatabase().db('final-project').collection('exercises').modifyOne({_id: exerciseId}, exercise);
     if (response.modifiedCount > 0) {
