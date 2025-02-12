@@ -5,10 +5,9 @@
     "description": "Health Tracker for CSE341 project",
     "version": "1.0.0"
   },
-  "host": "localhost:3000",
+  "host": "https://health-tracker-qhyk.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http",
     "https"
   ],
   "paths": {
