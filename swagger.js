@@ -5,8 +5,8 @@ const doc = {
     title: 'Health Tracker API',
     description: 'Health Tracker for CSE341 project',
   },
-  host: 'localhost:3000',
-  schemes: ['http' ,'https']
+  host: 'health-tracker-qhyk.onrender.com',
+  schemes: ['https']
 };
 
 const outputFile = './swagger.json';

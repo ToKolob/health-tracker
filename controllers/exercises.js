@@ -2,6 +2,7 @@ const mongodb = require('../data/mongodb');
 const ObjectId = require('mongodb').ObjectId;
 
 const getAllExercises = async (req, res) => {
+    // #swagger.tags = ['exercises']
     const result = await mongodb.getDatabase().db('final-project').collection('exercises').find();
     result.toArray().then((exercises) => {
         res.setHeader('Content-Type', 'application/json');
@@ -10,6 +11,7 @@ const getAllExercises = async (req, res) => {
 };
 
 const getByIDExercises = async (req, res) => {
+    // #swagger.tags = ['exercises']
     if (!ObjectId.isValid(req.params.id)) {
         res.status(400).json('Must use a valid exercise id to find an exercise.');
       }
@@ -22,6 +24,7 @@ const getByIDExercises = async (req, res) => {
 };
 
 const getByDurationExercises = async (req, res) => {
+    // #swagger.tags = ['exercises']
 //   if (!ObjectId.isValid(req.params.duration)) {
 //       res.status(400).json('Must use a valid duration duration to find an exercise.');
 //     }
@@ -34,6 +37,7 @@ const getByDurationExercises = async (req, res) => {
 };
 
 const getByNameExercises = async (req, res) => {
+    // #swagger.tags = ['exercises']
 //   if (!ObjectId.isValid(req.params.name)) {
 //       res.status(400).json('Must use a valid name to find an exercise.');
 //     }
@@ -45,6 +49,7 @@ const getByNameExercises = async (req, res) => {
   });
 };
 const getByDateExercises = async (req, res) => {
+    // #swagger.tags = ['exercises']
 //   if (!ObjectId.isValid(req.params.date)) {
 //       res.status(400).json('Must use a valid date to find an exercise.');
 //     }
@@ -57,6 +62,7 @@ const getByDateExercises = async (req, res) => {
 };
 
 const postExercise = async (req, res) => {
+    // #swagger.tags = ['exercises']
     const exercise = {
         name: req.body.name,
         description: req.body.description,
@@ -72,6 +78,7 @@ const postExercise = async (req, res) => {
 };
 
 const updateExercises = async (req, res) => {
+    // #swagger.tags = ['exercises']
     if (!ObjectId.isValid(req.params.id)) {
         res.status(400).json('Must use a valid exercise id to update an exercise.');
       }
@@ -91,6 +98,7 @@ const updateExercises = async (req, res) => {
 };
 
 const deleteExercises = async (req, res) => {
+    // #swagger.tags = ['exercises']
     if (!ObjectId.isValid(req.params.id)) {
         res.status(400).json('Must use a valid exercise id to delete an exercise.');
       }

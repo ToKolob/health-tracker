@@ -3,9 +3,13 @@ const { body, validationResult } = require('express-validator')
 
 const sleepTimeValidationRules = () => {
   return [
-    body('duration').isNumeric().withMessage('Duration must be a number').notEmpty().withMessage('Duration is required'),
-    body('date').isString().notEmpty().withMessage('Date is required'),
-    body('quality').isString().notEmpty().withMessage('Quality is required'),
+    body('sleep_date').isString().notEmpty().withMessage('Sleep date is required'),
+    body('bedtime').isString().notEmpty().withMessage('Bed time is required'),
+    body('wakeup_time').isString().notEmpty().withMessage('Wake up time is required'),
+    body('total_sleep_hours').isNumeric().notEmpty().withMessage('Total sleep hour is required'),
+    body('sleep_quality').isString().notEmpty().withMessage('Sleep quality is required'),
+    body('dreams_recorded').isString().notEmpty().withMessage('Dreams recorded is required'),
+    body('notes').isString().notEmpty().withMessage('Notes is required'),
   ]
 }
 const exerciseValidationRules = () => {
@@ -29,12 +33,19 @@ const mealValidationRules = () => {
     body('mealType').isString().notEmpty().withMessage('mealType is required'),
   ]  
 }
-const waterValidationRules = () => {
+
+const waterIntakeValidationRules = () => {
   return [
-    body('quantity').isNumeric().withMessage('Quantity must be a number').notEmpty().withMessage('Quantity is required'),
-    body('date').isString().withMessage('Date must be a string').notEmpty().withMessage('Date is required'),
-  ]
-}
+    body('quantity').isNumeric().notEmpty().withMessage('Quantity is required'),
+    body('date').isString().notEmpty().withMessage('Date is required'),
+    body('time').isString().notEmpty().withMessage('Time is required'),
+    body('tags').isString().notEmpty().withMessage('Tags should be a string'),
+    body('type').isString().notEmpty().withMessage('Type of water is required'),
+    body('hydrationReason').isString().notEmpty().withMessage('Hydration reason should be a string'),
+    body('location').isString().notEmpty().withMessage('Location should be a string'),
+  ];
+};
+
 
 const validate = (req, res, next) => {''
   
@@ -56,6 +67,6 @@ module.exports = {
   sleepTimeValidationRules,
   exerciseValidationRules,
   mealValidationRules,
-  waterValidationRules,
+  waterIntakeValidationRules,
   validate
 }
