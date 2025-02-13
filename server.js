@@ -2,8 +2,17 @@ const express = require('express');
 const cors = require('cors');
 const mongodb = require('./data/mongodb.js');
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
+// Passport setup
+const passport = require('passport');
+const session = require('express-session');
+const GitHubStrategy = require('passport-github2').Strategy;
+app.use(session({ secret: 'keyboard cat', resave: false, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
+
+//CORS
 app.use(cors());
 app.use(express.json());
 app.use((req, res, next) => {
@@ -18,6 +27,24 @@ process.on('uncaughtException', (err) => {
   console.log(process.stderr.fd, `Caught exception: ${err} \n Exception origin: ${origin}`);
 });
 
+// Passport setup
+passport.use(new GitHubStrategy({
+  clientID: process.env.GITHUB_CLIENT_ID,
+  clientSecret: process.env.GITHUB_CLIENT_SECRET,
+  callbackURL: process.env.GITHUB_CALLBACK_URL
+},
+  function (accessToken, refreshToken, profile, done) {
+    return done(null, profile);
+  }
+));
+passport.serializeUser(function (user, done) {
+  done(null, user);
+});
+passport.deserializeUser(function (user, done) {
+  done(null, user);
+});
+
+// Database setup
 mongodb.initDb((err, db) => {
   if (err) {
     console.log(err);

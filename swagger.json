@@ -5,10 +5,8 @@
     "description": "Health Tracker for CSE341 project",
     "version": "1.0.0"
   },
-  "host": "health-tracker-qhyk.onrender.com",
   "basePath": "/",
   "schemes": [
-    "https"
   ],
   "paths": {
     "/": {
@@ -580,6 +578,38 @@
         "description": "",
         "produces": [
           "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "sleep_date": {
+                  "example": "any"
+                },
+                "bedtime": {
+                  "example": "any"
+                },
+                "wakeup_time": {
+                  "example": "any"
+                },
+                "total_sleep_hours": {
+                  "example": "any"
+                },
+                "sleep_quality": {
+                  "example": "any"
+                },
+                "dreams_recorded": {
+                  "example": "any"
+                },
+                "notes": {
+                  "example": "any"
+                }
+              }
+            }
+          }
         ],
         "responses": {
           "412": {
