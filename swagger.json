@@ -5,8 +5,10 @@
     "description": "Health Tracker for CSE341 project",
     "version": "1.0.0"
   },
+  "host": "localhost:3001",
   "basePath": "/",
   "schemes": [
+    "http"
   ],
   "paths": {
     "/": {
