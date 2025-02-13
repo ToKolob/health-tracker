@@ -54,8 +54,8 @@
                 "description": {
                   "example": "any"
                 },
-                "duartion": {
-                  "example": "any"
+                "duration": {
+                  "example": 1
                 },
                 "date": {
                   "example": "any"
