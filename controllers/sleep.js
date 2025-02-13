@@ -56,18 +56,23 @@ const postSleepTime = async (req, res) => {
       notes: req.body.notes,
     };
   
-    const data = await mongodb.getDatabase().db().collection('sleepTime').insertOne(sleeptimes);
+    const data = await mongodb
+    .getDatabase()
+    .db()
+    .collection('sleepTime')
+    .insertOne(sleeptimes);
   
     if (data.acknowledged) {
       res.status(201).json({ message: 'Sleep Time created successfully' });
-    }
+    } else {
       res.setHeader('Content-Type', 'application/json');
       res.status(200).json(sleeptimes);
-    } catch (err) {
-      console.log(err);
-      res.status(500).send(err);
     }
-  };
+  } catch (err) {
+    console.log(err);
+    res.status(500).send(err);
+  }
+};
 
 const updateSleepTime = async (req, res) => {
   // #swagger.tags = ['sleep']

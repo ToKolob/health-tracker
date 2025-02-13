@@ -63,10 +63,10 @@ const postMeal = async (req, res) => {
 
     if (data.acknowledged) {
       res.status(201).json({ message: 'Meal created successfully' });
-    }
+    } else {
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(meal);
-
+    }
   } catch (err) {
     console.log(err);
     res.status(500).send(err);

@@ -62,9 +62,10 @@ const postWaterIntake = async (req, res) => {
 
     if (data.acknowledged) {
       res.status(201).json({ message: 'Water intake created successfully' });
-    }
+    } else {
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(waterIntake);
+    }
   } catch (err) {
     console.log(err);
     res.status(500).send(err);
