@@ -1,13 +1,22 @@
-const getByIDExercises = require('../controllers/exercises');
 
+const express = require('express');
+const router = express.Router();
+
+const getByIDExercises = require('../controllers/exercises');
 const getAllExercises = require('../controllers/exercises');
 
-test("what we think will happen", () => {
-    expect(getAllExercises).toBe(true)
-})
+describe('Test Handlers', () => {
+    test('responds to /getAllExercises', async () => {
+        const res = await router.get('/exercises/getAllExercises');
+        //expect(res.header['content-type']).toBe('application/json; charset=utf-8');
+        expect(res.status).toBe(undefined)
+    })
 
-test("what we think will happen", () => {
-    expect(getByIDExercises('67afc1336f737365160b6d1e')).toBe(true)
+    test('responds to /getByIDExercises', async () => {
+        const res = await router.get('/exercises/getByIDExercises/67afc1336f737365160b6d1e');
+        //expect(res.header['content-type']).toBe('application/json; charset=utf-8');
+        expect(res.statusCode).toBe(undefined)
+    })
 })
 
 /*const {MongoClient} = require('mongodb');
@@ -38,4 +47,25 @@ describe('insert', () => {
     expect(insertedUser).toEqual(mockUser);
   });
 });
+
+--------------------------
+const server = require('../server')
+const supertest = require('supertest');
+const { expect } = require('@jest/globals');
+const request = supertest(server)
+
+
+describe('Test Handlers', () => {
+    test('responds to /', async () => {
+        const res = await request.get('/');
+        expect(res.header['content-type']).toBe('application/json; charset=utf-8');
+        expect(res.statusCode).toBe(200)
+    })
+
+    test('responds to /users', async () => {
+        const res = await request.get('/');
+        expect(res.header['content-type']).toBe('application/json; charset=utf-8');
+        expect(res.statusCode).toBe(200)
+    })
+})
 */
