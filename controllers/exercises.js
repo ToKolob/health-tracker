@@ -29,44 +29,6 @@ const getByIDExercises = async (req, res) => {
     }
 };
 
-// const getByDurationExercises = async (req, res) => {
-//     // #swagger.tags = ['exercises']
-// //   if (!ObjectId.isValid(req.params.duration)) {
-// //       res.status(400).json('Must use a valid duration duration to find an exercise.');
-// //     }
-//   const duration = new ObjectId(req.params.duration);
-//   const result = await mongodb.getDatabase().db('final-project').collection('exercises').find({_id: exerciseDuration });
-//   result.toArray().then((exercises) => {
-//       res.setHeader('Content-Type', 'application/json');
-//       res.status(200).json(exercises[0]);
-//   });
-// };
-
-// const getByNameExercises = async (req, res) => {
-//     // #swagger.tags = ['exercises']
-// //   if (!ObjectId.isValid(req.params.name)) {
-// //       res.status(400).json('Must use a valid name to find an exercise.');
-// //     }
-//   const name = new ObjectId(req.params.name);
-//   const result = await mongodb.getDatabase().db('final-project').collection('exercises').find({_id: exerciseName });
-//   result.toArray().then((exercises) => {
-//       res.setHeader('Content-Type', 'application/json');
-//       res.status(200).json(exercises[0]);
-//   });
-// };
-// const getByDateExercises = async (req, res) => {
-//     // #swagger.tags = ['exercises']
-// //   if (!ObjectId.isValid(req.params.date)) {
-// //       res.status(400).json('Must use a valid date to find an exercise.');
-// //     }
-//   const date = new ObjectId(req.params.date);
-//   const result = await mongodb.getDatabase().db('final-project').collection('exercises').find({_id: exerciseDate });
-//   result.toArray().then((exercises) => {
-//       res.setHeader('Content-Type', 'application/json');
-//       res.status(200).json(exercises[0]);
-//   });
-// };
-
 const postExercise = async (req, res) => {
     // #swagger.tags = ['exercises']
     try {
@@ -132,9 +94,6 @@ const deleteExercises = async (req, res) => {
 module.exports = {
     getAllExercises,
     getByIDExercises,
-    // getByNameExercises,
-    // getByDurationExercises,
-    // getByDateExercises,
     postExercise,
     updateExercises,
     deleteExercises
