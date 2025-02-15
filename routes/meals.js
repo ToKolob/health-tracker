@@ -10,5 +10,5 @@ router.get('/:id', controller.getSingleMeal);
 router.post('/', isAutehnticated, mealValidationRules(), validate, controller.postMeal);
 router.put('/:id', isAutehnticated, mealValidationRules(), validate, controller.updateMeal);
 router.delete('/:id', controller.deleteMeal);
- 
+
 module.exports = router;

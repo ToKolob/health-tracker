@@ -55,3 +55,5 @@ mongodb.initDb((err, db) => {
     });
   }
 });
+
+module.exports = app;
