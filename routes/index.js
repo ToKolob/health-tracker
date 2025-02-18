@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
   if (req.session.user) {
     res.send('<p>Hello! Welcome to Health Tracker</p>' +
       '<br> <a href="/api-docs">API Documentation</a>' +
-      '<br> Logged in as: ' + req.session.user.name  +
+      '<br> Logged in as: ' + req.session.user.username +
       '<br> <a href="/logout">Logout</a>');
   } else {
     res.send('<p>Hello! Welcome to Health Tracker</p>' +
